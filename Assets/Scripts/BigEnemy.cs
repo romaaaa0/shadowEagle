@@ -6,21 +6,54 @@ using UnityEngine.UIElements;
 
 public class BigEnemy : MonoBehaviour, IEnemy
 {
-    public float Hp { get; set; } = 2;
-    public float Damage;
-    public float AtackSpeed;
-    public float AttackRange = 2;
-    public Animator AnimatorController;
-    public NavMeshAgent Agent;
+    public float Health { get; set; } = 2;
     [SerializeField] private List<Enemy> Enemies;
+    private float damage = 2;
+    private float atackSpeed = 2;
+    private float attackDistance = 2;
+    private Animator animatorController;
+    private NavMeshAgent navMeshAgent;
     private List<Enemy> cloneEnemies = new List<Enemy>();
     private Player player;
     private float lastAttackTime = 0;
-    private bool isDead = false;
-    
+    private IDie die;
+    private bool isDead;
     private void Start()
     {
+        animatorController = GetComponent<Animator>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         SceneManager.Instance.AddEnemie(this);
+        CreateSpareEnemies();
+        navMeshAgent.SetDestination(SceneManager.Instance.Player.transform.position);
+        player = FindObjectOfType<Player>();
+        die = new BigEnemyDie(animatorController, cloneEnemies, this, navMeshAgent);
+    }
+    private void Update()
+    {
+        if(isDead) return;
+        isDead = die.Die();
+
+        var distance = Vector3.Distance(transform.position, SceneManager.Instance.Player.transform.position);
+     
+        if (distance <= attackDistance)
+        {
+            navMeshAgent.isStopped = true;
+            if (Time.time - lastAttackTime > atackSpeed)
+            {
+                lastAttackTime = Time.time;
+                SceneManager.Instance.Player.Hp -= damage;
+                animatorController.SetTrigger("Attack");
+            }
+        }
+        else
+        {
+            navMeshAgent.isStopped = false;
+            navMeshAgent.SetDestination(SceneManager.Instance.Player.transform.position);
+        }
+        animatorController.SetFloat("Speed", navMeshAgent.speed); 
+    }
+    private void CreateSpareEnemies()
+    {
         var position = transform.position;
         foreach (var character in Enemies)
         {
@@ -32,49 +65,9 @@ public class BigEnemy : MonoBehaviour, IEnemy
             SceneManager.Instance.AddEnemie(enemy);
             cloneEnemies.Add(enemy);
         }
-        Agent.SetDestination(SceneManager.Instance.Player.transform.position);
-        player = FindObjectOfType<Player>();
-    }
-    private void Update()
-    {
-        if(isDead)
-        {
-            return;
-        }
-
-        if (Hp <= 0)
-        {
-            player.AddHP();
-            Die();
-            Agent.isStopped = true;
-            return;
-        }
-
-        var distance = Vector3.Distance(transform.position, SceneManager.Instance.Player.transform.position);
-     
-        if (distance <= AttackRange)
-        {
-            Agent.isStopped = true;
-            if (Time.time - lastAttackTime > AtackSpeed)
-            {
-                lastAttackTime = Time.time;
-                SceneManager.Instance.Player.Hp -= Damage;
-                AnimatorController.SetTrigger("Attack");
-            }
-        }
-        else
-        {
-            Agent.isStopped = false;
-            Agent.SetDestination(SceneManager.Instance.Player.transform.position);
-        }
-        AnimatorController.SetFloat("Speed", Agent.speed); 
     }
     private void Die()
     {
-        foreach (var enemy in cloneEnemies)
-            enemy.gameObject.SetActive(true);
-        SceneManager.Instance.RemoveEnemie(this);
-        isDead = true;
-        AnimatorController.SetTrigger("Die");
+
     }
 }

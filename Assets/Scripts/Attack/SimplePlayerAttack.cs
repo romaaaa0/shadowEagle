@@ -6,7 +6,6 @@ public class SimplePlayerAttack : PlayerAttack
     protected override float attackDelayTime { get; set; } = 1;
     protected override float attackDistance { get; set; } = 2;
     private float damage = 1;
-    private DoublePlayerAttack doublePlayerAttack;
     public override void Attack()
     {
         var closestEnemy = playerDistanceToClosestEnemy.Distance(gameObject.transform);
@@ -17,7 +16,7 @@ public class SimplePlayerAttack : PlayerAttack
             if (distance <= attackDistance && attackTimer <= 0)
             {
                 transform.transform.rotation = Quaternion.LookRotation(enemyType.transform.position - transform.position);
-                closestEnemy.Hp -= damage;
+                closestEnemy.Health -= damage;
                 Fight();
             }
             else if (attackTimer <= 0)

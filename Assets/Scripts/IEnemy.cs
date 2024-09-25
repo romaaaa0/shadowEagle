@@ -1,4 +1,4 @@
 ﻿public interface IEnemy
 {
-    public float Hp { get; set; }
+    public float Health { get; set; }
 }

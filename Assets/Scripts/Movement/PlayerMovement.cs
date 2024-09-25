@@ -5,10 +5,10 @@ public class PlayerMovement : IMovement
     private Player player;
     private Animator animator;
     private IAnimation animationMove;
-    public PlayerMovement(Player player)
+    public PlayerMovement()
     {
-        this.player = player;
-        animationMove = new MoveAnimation(player);
+        player = SceneManager.Instance.Player;
+        animationMove = new MoveAnimation();
     }
     public void Move()
     {        

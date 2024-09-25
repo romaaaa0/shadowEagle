@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public abstract class PlayerAttack : MonoBehaviour
 {
-    public bool IsPlayerFighting;
     [SerializeField] protected Image attackButton;
     protected PlayerDistanceToClosestEnemy playerDistanceToClosestEnemy;
     protected Animator animatorController;

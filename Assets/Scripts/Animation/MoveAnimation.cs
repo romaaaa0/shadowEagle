@@ -1,29 +1,23 @@
 ﻿public class MoveAnimation : IAnimation
 {
     private Player player;
-    public MoveAnimation(Player player)
+    public MoveAnimation()
     {
-        this.player = player;
+        player = SceneManager.Instance.Player;
     }
     public void Animation()
     {
-        if(player.MovementDirection.magnitude == 0)
+        if(player.MovementDirection.magnitude == 0 && !player.IsIdle)
         {
-            if (!player.IsIdle)
-            {
-                IdleAnimationStart();
-                player.IsRunning = false;
-                player.IsIdle = true;
-            }
+            IdleAnimationStart();
+            player.IsRunning = false;
+            player.IsIdle = true;
         }
-        else if (player.MovementDirection.magnitude != 0)
+        else if (player.MovementDirection.magnitude != 0 && !player.IsRunning && player.IsIdle)
         {
-            if (!player.IsRunning)
-            {
-                MoveAnimationPlay();
-                player.IsRunning = true;
-                player.IsIdle = false;
-            }
+            MoveAnimationPlay();
+            player.IsRunning = true;
+            player.IsIdle = false;
         }
     }
     private void MoveAnimationPlay()

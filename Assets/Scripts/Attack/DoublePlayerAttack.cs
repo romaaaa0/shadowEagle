@@ -17,7 +17,7 @@ public class DoublePlayerAttack : PlayerAttack
             if (distance <= attackDistance && attackTimer <= 0)
             {
                 transform.transform.rotation = Quaternion.LookRotation(enemyType.transform.position - transform.position);
-                closestEnemy.Hp -= damage;
+                closestEnemy.Health -= damage;
                 Fight();
             }
         }

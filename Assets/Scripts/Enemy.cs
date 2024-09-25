@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour, IEnemy
 {
-    public float Hp { get; set; } = 1;
+    public float Health { get; set; } = 1;
     public float Damage;
     public float AtackSpeed;
     public float AttackRange = 2;
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour, IEnemy
             return;
         }
 
-        if (Hp <= 0)
+        if (Health <= 0)
         {
             player.AddHP();
             Die();

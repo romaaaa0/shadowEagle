@@ -5,14 +5,14 @@ public class RotationPlayer : IRotation
     private Player player;
     private float rotationSpeed = 30;
 
-    public RotationPlayer(Player player)
+    public RotationPlayer()
     {
-        this.player = player;
+        player = SceneManager.Instance.Player;
     }
 
     public void Rotation()
     {
-        if (player.MovementDirection.magnitude != 0)
+        if (player.IsRunning)
         {
             var playerTransform = player.gameObject.transform.rotation;
             var toRotation = Quaternion.LookRotation(player.MovementDirection);
