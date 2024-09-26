@@ -16,8 +16,8 @@ public class SceneManager : MonoBehaviour
 
     private int currWave = 0;
     [SerializeField] private LevelConfig Config;
-    [SerializeField] private Text CurrentWaveNumber;
-    [SerializeField] private Text TotalNumberWaves;
+    [SerializeField] private Text currentWaveNumber;
+    [SerializeField] private Text totalNumberWaves;
 
     private void Awake()
     {
@@ -25,8 +25,8 @@ public class SceneManager : MonoBehaviour
     }
     private void Start()
     {
-        TotalNumberWaves.text = "Total Waves: " + Config.Waves.Length;
-        CurrentWaveNumber.text = "Current Wave: " + currWave;
+        totalNumberWaves.text = "Total Waves: " + Config.Waves.Length;
+        currentWaveNumber.text = "Current Wave: " + currWave;
         SpawnWave();
     }
     public void AddEnemie(Enemy enemie)
@@ -63,7 +63,7 @@ public class SceneManager : MonoBehaviour
             Instantiate(character, pos, Quaternion.identity);
         }
         currWave++;
-        CurrentWaveNumber.text = "Current Wave: " + currWave;
+        currentWaveNumber.text = "Current Wave: " + currWave;
     }
 
     public void Reset()
