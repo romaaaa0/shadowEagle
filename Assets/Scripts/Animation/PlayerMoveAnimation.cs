@@ -1,7 +1,7 @@
-﻿public class MoveAnimation : IAnimation
+﻿public class PlayerMoveAnimation : IAnimation
 {
     private Player player;
-    public MoveAnimation()
+    public PlayerMoveAnimation()
     {
         player = SceneManager.Instance.Player;
     }
@@ -9,23 +9,15 @@
     {
         if(player.MovementDirection.magnitude == 0 && !player.IsIdle)
         {
-            IdleAnimationStart();
+            player.AnimatorController.SetTrigger("Idle");
             player.IsRunning = false;
             player.IsIdle = true;
         }
         else if (player.MovementDirection.magnitude != 0 && !player.IsRunning && player.IsIdle)
         {
-            MoveAnimationPlay();
+            player.AnimatorController.SetTrigger("Run");
             player.IsRunning = true;
             player.IsIdle = false;
         }
-    }
-    private void MoveAnimationPlay()
-    {
-        player.AnimatorController.SetTrigger("Run");
-    }
-    private void IdleAnimationStart()
-    {
-        player.AnimatorController.SetTrigger("Idle");
     }
 }

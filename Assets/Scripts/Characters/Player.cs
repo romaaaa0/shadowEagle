@@ -18,12 +18,11 @@ public class Player : MonoBehaviour
     public bool IsIdle { get; set; }
     public bool IsDead { get; set; }
     public Vector3 MovementDirection { get; private set; }
-    public float Hp = 10;
+    public float Hp { get; set; } = 10;
     public Animator AnimatorController;
     private int speed = 5;
     private IMovement movement;
     private IRotation rotation;
-    public float magnitudePlayer;
     private IDie die;
     private void Start()
     {

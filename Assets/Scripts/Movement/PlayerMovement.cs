@@ -8,7 +8,7 @@ public class PlayerMovement : IMovement
     public PlayerMovement()
     {
         player = SceneManager.Instance.Player;
-        animationMove = new MoveAnimation();
+        animationMove = new PlayerMoveAnimation();
     }
     public void Move()
     {        

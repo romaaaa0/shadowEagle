@@ -1023,8 +1023,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1243299936542471090}
+  Enemies: []
   Lose: {fileID: 2065721504}
   Win: {fileID: 527944048}
+  countEnemies: 0
   Config: {fileID: 11400000, guid: 8153ea4e5491d8543b373d0f03962714, type: 2}
   CurrentWaveNumber: {fileID: 1971930888}
   TotalNumberWaves: {fileID: 964598092}
@@ -1612,7 +1614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5115665549051153157, guid: 98fa2bf115616174da3132f7a380aca3, type: 3}
       propertyPath: Hp
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5115665549051153157, guid: 98fa2bf115616174da3132f7a380aca3, type: 3}
       propertyPath: AtackSpeed
@@ -1632,7 +1634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8342809897575316683, guid: 98fa2bf115616174da3132f7a380aca3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.67
       objectReference: {fileID: 0}
     - target: {fileID: 8342809897575316683, guid: 98fa2bf115616174da3132f7a380aca3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1696,7 +1698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deaae166fcf85cc468cccad3a5f870d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsPlayerFighting: 0
   attackButton: {fileID: 291217162}
 --- !u!114 &1243299936542471094
 MonoBehaviour:
@@ -1710,7 +1711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95894d76ba65df4aa33f1eb185d0761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsPlayerFighting: 0
   attackButton: {fileID: 1961722850}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

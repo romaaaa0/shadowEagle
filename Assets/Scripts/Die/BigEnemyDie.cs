@@ -7,8 +7,8 @@ public class BigEnemyDie : IDie
     private Animator animator;
     private BigEnemy bigEnemy;
     private NavMeshAgent navMeshAgent;
-    private List<Enemy> cloneEnemies = new List<Enemy>();
-    public BigEnemyDie(Animator animator, List<Enemy> cloneEnemies, BigEnemy bigEnemy, NavMeshAgent navMeshAgent)
+    private List<SimpleEnemy> cloneEnemies = new List<SimpleEnemy>();
+    public BigEnemyDie(Animator animator, List<SimpleEnemy> cloneEnemies, BigEnemy bigEnemy, NavMeshAgent navMeshAgent)
     {
         this.animator = animator;
         this.cloneEnemies = cloneEnemies;
