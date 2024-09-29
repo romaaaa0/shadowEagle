@@ -1,17 +1,23 @@
-﻿public class DiePlayer : IDie
+﻿using UnityEngine;
+
+public class DiePlayer : IDie
 {
     private Player player;
-    public DiePlayer()
+    private Animator animator;
+    private GameObject gameOverPanel;
+    public DiePlayer(Animator animator, GameObject gameOverPanel)
     {
-        player = SceneManager.Instance.Player;
+        player = SceneManager.Instance.Player;  
+        this.animator = animator;
+        this.gameOverPanel = gameOverPanel;
     }
     public void Die()
     {
-        if (player.Hp <= 0)
+        if (player.Health <= 0)
         {
-            player.AnimatorController.SetTrigger("Die");
-            SceneManager.Instance.GameOver();
+            animator.SetTrigger("Die");
             player.IsDead = true;
+            LostGame.Instance.Lost();
         }
     }
 }

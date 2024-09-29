@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting.FullSerializer;
+using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class EnemyAttack
@@ -9,11 +10,13 @@ public abstract class EnemyAttack
     private Animator animator;
     private float attackTimer;
     private Enemy enemy;
+    private float startPlayerHealth;
     public EnemyAttack(Enemy enemy, NavMeshAgent navMeshAgent, Animator animator)
     {
         this.enemy = enemy;
         this.navMeshAgent = navMeshAgent;
         this.animator = animator;
+        startPlayerHealth = SceneManager.Instance.Player.Health;
     }
     public virtual void Attack()
     {
@@ -28,7 +31,7 @@ public abstract class EnemyAttack
                 var player = SceneManager.Instance.Player;
                 enemy.transform.rotation = Quaternion.LookRotation(player.transform.position - enemy.transform.position);
                 attackTimer = attackDelayTime;
-                SceneManager.Instance.Player.Hp -= damage;
+                player.TakeAwayHealth(damage);
                 animator.SetTrigger("Attack");
             }
         }

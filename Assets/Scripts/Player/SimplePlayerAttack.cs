@@ -20,7 +20,7 @@ public class SimplePlayerAttack : PlayerAttack
             var distance = Vector3.Distance(transform.position, closestEnemy.transform.position);
             if (distance <= attackDistance && attackTimer <= 0)
             {
-                transform.transform.rotation = Quaternion.LookRotation(closestEnemy.transform.position - transform.position);
+                transform.transform.rotation = Quaternion.LookRotation(closestEnemy.transform.position - transform.position, Vector3.up);
                 closestEnemy.Health -= damage;
                 Fight();
             }

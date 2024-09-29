@@ -20,7 +20,7 @@ public class BigEnemyDie : IDie
     {
         if (bigEnemy.Health <= 0)
         {
-            SceneManager.Instance.Player.AddHP();
+            SceneManager.Instance.Player.AddHP(2);
             navMeshAgent.isStopped = true;
             createSpareEnemies.Create(2);
             SceneManager.Instance.RemoveEnemie(bigEnemy);

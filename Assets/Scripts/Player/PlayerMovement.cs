@@ -3,18 +3,17 @@
 public class PlayerMovement : MonoBehaviour 
 {
     private Player player;
-    private Animator animator;
     private IAnimation animationMove;
     private RotationPlayer rotation;
     public void Start()
     {
         player = SceneManager.Instance.Player;
-        animationMove = new PlayerMoveAnimation();
+        animationMove = new PlayerMoveAnimation(GetComponent<Animator>());
         rotation = new RotationPlayer();
     }
     private void Update()
     {
-        if (player.IsDead) return;
+        if (player.IsDead || player.IsWon) return;
         Move();
     }
     public void Move()

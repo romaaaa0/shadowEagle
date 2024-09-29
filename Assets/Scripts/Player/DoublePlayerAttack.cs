@@ -21,7 +21,7 @@ public class DoublePlayerAttack : PlayerAttack
             var distance = Vector3.Distance(transform.position, enemyType.transform.position);
             if (distance <= attackDistance && attackTimer <= 0)
             {
-                transform.transform.rotation = Quaternion.LookRotation(enemyType.transform.position - transform.position);
+                transform.transform.rotation = Quaternion.LookRotation(enemyType.transform.position - transform.position, Vector3.up);
                 closestEnemy.Health -= damage;
                 Fight();
             }

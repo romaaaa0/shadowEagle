@@ -22,7 +22,7 @@ namespace Assets
                 SceneManager.Instance.RemoveEnemie(simpleEnemy);
                 animator.SetTrigger("Die");
                 navMeshAgent.isStopped = true;
-                SceneManager.Instance.Player.AddHP();
+                SceneManager.Instance.Player.AddHP(1);
                 simpleEnemy.IsDead = true;
             }
         }

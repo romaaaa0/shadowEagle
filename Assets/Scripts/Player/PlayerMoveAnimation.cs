@@ -1,24 +1,30 @@
-﻿public class PlayerMoveAnimation : IAnimation
+﻿using UnityEngine;
+
+public class PlayerMoveAnimation : IAnimation
 {
     private Player player;
-    public PlayerMoveAnimation()
+    private Animator animator;
+    private bool isIdle;
+    private bool isRunning;
+    public PlayerMoveAnimation(Animator animator)
     {
         player = SceneManager.Instance.Player;
+        this.animator = animator;
     }
     public void Animation()
     {
         if (player.IsDead) return;
-        if(player.MovementDirection.magnitude == 0 && !player.IsIdle)
+        if(player.MovementDirection.magnitude == 0 && !isIdle)
         {
-            player.AnimatorController.SetTrigger("Idle");
-            player.IsRunning = false;
-            player.IsIdle = true;
+            animator.SetTrigger("Idle");
+            isRunning = false;
+            isIdle = true;
         }
-        else if (player.MovementDirection.magnitude != 0 && !player.IsRunning && player.IsIdle)
+        else if (player.MovementDirection.magnitude != 0 && !isRunning && isIdle)
         {
-            player.AnimatorController.SetTrigger("Run");
-            player.IsRunning = true;
-            player.IsIdle = false;
+            animator.SetTrigger("Run");
+            isRunning = true;
+            isIdle = false;
         }
     }
 }

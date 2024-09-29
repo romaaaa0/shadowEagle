@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneManager : MonoBehaviour
@@ -10,8 +8,6 @@ public class SceneManager : MonoBehaviour
 
     public Player Player;
     public List<Enemy> Enemies = new List<Enemy>();
-    public GameObject Lose;
-    public GameObject Win;
     public int countEnemies;
 
     private int currWave = 0;
@@ -42,17 +38,11 @@ public class SceneManager : MonoBehaviour
             SpawnWave();
         }
     }
-
-    public void GameOver()
-    {
-        Lose.SetActive(true);
-    }
-
     private void SpawnWave()
     {
         if (currWave >= Config.Waves.Length)
         {
-            Win.SetActive(true);
+            WinGame.Instance.Win();
             return;
         }
 

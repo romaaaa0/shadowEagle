@@ -20,7 +20,7 @@ public abstract class PlayerAttack : MonoBehaviour
     }
     protected virtual void Update()
     {
-        if (SceneManager.Instance.Player.IsDead) 
+        if (SceneManager.Instance.Player.IsDead || SceneManager.Instance.Player.IsWon) 
             attackButton.onClick.RemoveAllListeners();
         attackTimer -= Time.deltaTime;
         attackImage.fillAmount += Time.deltaTime / attackDelayTime;
@@ -30,7 +30,6 @@ public abstract class PlayerAttack : MonoBehaviour
     {
         attackImage.fillAmount = 0;
         attackTimer = attackDelayTime;
-        player.IsFighting = true;
-        player.IsRunning = false;
+
     }
 }
