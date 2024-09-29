@@ -80,9 +80,6 @@ PrefabInstance:
       addedObject: {fileID: 8767279960998370427}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: cb01db2707aa97a4e94efee03de71f52, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4115618167690088674}
-    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: cb01db2707aa97a4e94efee03de71f52, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6584147123396306137}
   m_SourcePrefab: {fileID: 100100000, guid: cb01db2707aa97a4e94efee03de71f52, type: 3}
 --- !u!1 &4570157599844447218 stripped
@@ -103,8 +100,8 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 1000
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -112,18 +109,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-4115618167690088674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4570157599844447218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6f163692b0fdb49936db20a54f4292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6584147123396306137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b0a5c309ee50a4aaf98c79dd20626b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemies:
-  - {fileID: 8657831645097248898, guid: 4c34fad82d8582f40a00c43d3128284a, type: 3}
-  - {fileID: 8657831645097248898, guid: 4c34fad82d8582f40a00c43d3128284a, type: 3}
+  cloneEnemy: {fileID: 8657831645097248898, guid: 4c34fad82d8582f40a00c43d3128284a, type: 3}

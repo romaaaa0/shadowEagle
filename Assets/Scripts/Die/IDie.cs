@@ -1,4 +1,4 @@
 ﻿public interface IDie
 {
-    bool Die();
+    void Die();
 }

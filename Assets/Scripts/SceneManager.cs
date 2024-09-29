@@ -60,7 +60,8 @@ public class SceneManager : MonoBehaviour
         foreach (var character in wave.Characters)
         {
             Vector3 pos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
-            Instantiate(character, pos, Quaternion.identity);
+            var enemy = Instantiate(character, pos, Quaternion.identity);
+            AddEnemie(enemy.GetComponent<Enemy>());
         }
         currWave++;
         currentWaveNumber.text = "Current Wave: " + currWave;

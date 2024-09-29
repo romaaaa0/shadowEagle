@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1243299936542471093}
+      - m_Target: {fileID: 1243299936542471099}
         m_TargetAssemblyTypeName: SimplePlayerAttack, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 1
@@ -1028,8 +1028,8 @@ MonoBehaviour:
   Win: {fileID: 527944048}
   countEnemies: 0
   Config: {fileID: 11400000, guid: 8153ea4e5491d8543b373d0f03962714, type: 2}
-  currentWaveNumber: {fileID: 0}
-  totalNumberWaves: {fileID: 0}
+  currentWaveNumber: {fileID: 1971930888}
+  totalNumberWaves: {fileID: 964598092}
 --- !u!4 &1283724813
 Transform:
   m_ObjectHideFlags: 0
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1243299936542471094}
+      - m_Target: {fileID: 1243299936542471098}
         m_TargetAssemblyTypeName: DoublePlayerAttack, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 1
@@ -1670,10 +1670,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5016100408427286232, guid: 98fa2bf115616174da3132f7a380aca3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1243299936542471093}
+      addedObject: {fileID: 1243299936542471097}
     - targetCorrespondingSourceObject: {fileID: 5016100408427286232, guid: 98fa2bf115616174da3132f7a380aca3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1243299936542471094}
+      addedObject: {fileID: 1243299936542471099}
+    - targetCorrespondingSourceObject: {fileID: 5016100408427286232, guid: 98fa2bf115616174da3132f7a380aca3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1243299936542471098}
   m_SourcePrefab: {fileID: 100100000, guid: 98fa2bf115616174da3132f7a380aca3, type: 3}
 --- !u!114 &1243299936542471090 stripped
 MonoBehaviour:
@@ -1686,7 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0d768a0d357334286e5a146ac21b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1243299936542471093
+--- !u!114 &1243299936542471097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1695,11 +1698,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 969892044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deaae166fcf85cc468cccad3a5f870d1, type: 3}
+  m_Script: {fileID: 11500000, guid: a956a32373ad3b549b55e8be1adbb566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackButton: {fileID: 291217162}
---- !u!114 &1243299936542471094
+--- !u!114 &1243299936542471098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1708,10 +1710,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 969892044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95894d76ba65df4aa33f1eb185d0761, type: 3}
+  m_Script: {fileID: 11500000, guid: ed7fc75d7832e9c44a10d84755a685c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackButton: {fileID: 1961722850}
+--- !u!114 &1243299936542471099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969892044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c66ccf5b644124f8862dbeba498b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackButton: {fileID: 291217162}
+  closestEnemy: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
