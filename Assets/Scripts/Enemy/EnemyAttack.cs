@@ -34,7 +34,7 @@ public abstract class EnemyAttack
                 animator.SetTrigger("Attack");
                 enemy.IsAttacked = true;
             }
-            else if(attackTimer > 0 && enemy.IsRunning || enemy.IsAttacked)
+            else if(!enemy.IsDead && attackTimer > 0 && enemy.IsRunning || enemy.IsAttacked)
             {
                 animator.SetTrigger("Idle");
                 enemy.IsRunning = false;
