@@ -18,12 +18,10 @@ internal class EnemyMovementAnimation : IAnimation
         {
             animator.SetTrigger("Run");
             enemy.IsRunning = true;
-            enemy.IsAttacking = false;
         }
         else if(distanceToPlayer <= enemy.AttackDistance)
         {
             enemy.IsRunning = false;
-            enemy.IsAttacking = true;
         }
     }
 }

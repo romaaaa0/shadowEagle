@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour
     public float AttackDistance { get; set; }
     public bool IsDead { get; set; }
     public bool IsRunning { get; set; }
-    public bool IsAttacking { get; set; }
+    public bool IsAttacked { get; set; }
     protected Animator animator;
     protected NavMeshAgent navMeshAgent;
     protected IDie die;

@@ -1,5 +1,4 @@
-﻿using Unity.VisualScripting.FullSerializer;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class EnemyAttack
@@ -33,6 +32,13 @@ public abstract class EnemyAttack
                 attackTimer = attackDelayTime;
                 player.TakeAwayHealth(damage);
                 animator.SetTrigger("Attack");
+                enemy.IsAttacked = true;
+            }
+            else if(attackTimer > 0 && enemy.IsRunning || enemy.IsAttacked)
+            {
+                animator.SetTrigger("Idle");
+                enemy.IsRunning = false;
+                enemy.IsAttacked = false;
             }
         }
     }
